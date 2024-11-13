@@ -1,0 +1,39 @@
+*****************************************************************************
+
+This view stores the highest average ratings for movies rated more than 10 times:
+
+
+*****************************************************************************
+
+-- Step 1: Create the Best_movies view
+CREATE OR REPLACE VIEW Best_movies AS 
+SELECT 
+    movie_id, 
+    AVG(rating) AS avg_rating,
+    COUNT(movie_id) AS ratingCount
+FROM 
+    movies_data 
+GROUP BY 
+    movie_id
+HAVING 
+    COUNT(movie_id) > 10
+ORDER BY 
+    avg_rating DESC, ratingCount DESC;
+
+*****************************************************************************
+
+-- Step 2: Query to get movie names with ratings
+SELECT 
+    n.movie_name, 
+    t.ratingCount, 
+    t.avg_rating 
+FROM 
+    Best_movies t 
+JOIN 
+    movies_items n 
+ON 
+    t.movie_id = n.movie_id;
+
+
+
+*****************************************************************************

@@ -1,0 +1,35 @@
+-- Load ratings data
+ratings = LOAD '/user/root/data/movies_data' AS (user_id:int, movie_id:int, rating:int, rating_time:int);
+
+-- Load movie metadata
+movies_ratings = LOAD '/user/root/data/movies_items' USING PigStorage('|')
+AS (movie_id:int, movie_title:chararray, release_Date:chararray, release_video:chararray, IMDB_Link:chararray);
+
+-- Process movie release date into a UNIX timestamp for easy ordering
+moviename_lookup = FOREACH movies_ratings GENERATE movie_id, movie_title, ToUnixTime(ToDate(release_Date, 'dd-MMM-yyyy')) AS releaseTime;
+
+-- Group ratings by movie to calculate average rating per movie
+ratingsByMovie = GROUP ratings BY movie_id;
+avgRatings = FOREACH ratingsByMovie GENERATE 
+    group as movie_id, 
+    AVG(ratings.rating) as avgRating, 
+    COUNT(ratings) as rating_count;
+
+-- Filter for movies rated more than 10 times
+HighlyRatedMovies = FILTER avgRatings BY rating_count > 10;
+
+-- Join filtered movies with movie metadata
+HighlyRatedMoviesWithData = JOIN HighlyRatedMovies BY movie_id, moviename_lookup BY movie_id;
+
+-- Select only the required columns
+FinalOutput = FOREACH HighlyRatedMoviesWithData GENERATE 
+    HighlyRatedMovies::movie_id, 
+    HighlyRatedMovies::avgRating, 
+    HighlyRatedMovies::rating_count, 
+    moviename_lookup::movie_title;
+
+-- Order by average rating in descending order (from highest to lowest)
+OrderedBestMovies = ORDER FinalOutput BY avgRating DESC;
+
+-- Save the output to an HDFS file
+STORE OrderedBestMovies INTO '/user/root/pig_output/Best_movies' USING PigStorage('\t');

@@ -1,0 +1,38 @@
+*****************************************************************************
+
+The view calculates the average ratings for movies rated more than 10 times and sorts by the lowest ratings first:
+
+
+*****************************************************************************
+
+-- Step 1: Create the Worst_movies view
+CREATE OR REPLACE VIEW Worst_movies AS 
+SELECT 
+    movie_id, 
+    ROUND(AVG(rating), 2) AS avg_rating,
+    COUNT(movie_id) AS ratingCount
+FROM 
+    movies_data 
+GROUP BY 
+    movie_id
+HAVING 
+    COUNT(movie_id) > 10
+ORDER BY 
+    avg_rating ASC, ratingCount DESC;
+
+*****************************************************************************
+
+-- Step 2: Query to get movie names with ratings
+SELECT 
+    n.movie_name, 
+    t.ratingCount, 
+    t.avg_rating 
+FROM 
+    Worst_movies t 
+JOIN 
+    movies_items n 
+ON 
+    t.movie_id = n.movie_id;
+
+
+*****************************************************************************

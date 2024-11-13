@@ -1,0 +1,34 @@
+cd /usr/hdp/current/kafka-broker/bin
+
+ ./kafka-topics.sh --create --zookeeper sandbox-hdp.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic "test".
+
+./kafka-topics.sh --list --zookeeper sandbox-hdp.hortonworks.com:2181
+
+./kafka-console-producer.sh --broker-list sandbox-hdp.hortonworks.com:6667 --topic test.
+
+
+./kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic test. --from-beginning 
+
+
+cd /usr/hdp/current/kafka-broker/conf
+
+
+
+cp connect-standalone.properties ~/
+
+cp connect-file-sink.properties ~/
+
+cp connect-file-source.properties ~/
+
+
+sink file : /root/kafka/output.txt
+source file : /root/kafka/access_log.txt
+topic name : logkafka
+
+
+wget http://192.168.1.12:8000/log_input.txt
+
+./kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic logkafka --from-beginning
+
+
+./connect-standalone.sh ~/connect-standalone.properties ~/connect-file-source.properties ~/connect-file-sink.properties

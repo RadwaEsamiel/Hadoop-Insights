@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+	.new-page {
+		page-break-before: always;
+	}
+</style>
+
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 16px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 14px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 16px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="hadoop-insights-an-end-to-end-big-data-journey">Hadoop Insights: An End-to-End Big Data Journey</h1>
+<h3 id="project-overview">Project Overview</h3>
+<p>This project is a comprehensive exploration of the Hadoop ecosystem and its capabilities for handling large-scale data analysis. Using the MovieLens 100K dataset, this project leveraged various tools—Hadoop, Spark, Hive, Pig, and Kafka—within the Hadoop ecosystem to perform ETL (Extract, Transform, Load), analyze data, and visualize insights. Additionally, it incorporated relational and non-relational databases such as MySQL, Cassandra, MongoDB, and HBase for diverse data storage strategies. An end-to-end pipeline was established in Zeppelin for final analysis and visualization, providing both interactive data exploration and a clear depiction of trends and user behaviors in movie ratings.</p>
+<h2 id="1-environment-setup-and-initial-configuration">1. Environment Setup and Initial Configuration</h2>
+<h3 id="step-1-setting-up-the-hdp-sandbox">Step 1: Setting Up the HDP Sandbox</h3>
+<p>Download and set up the Ambari HDP Sandbox to get the Hadoop ecosystem tools. The sandbox used in this project can be downloaded from:</p>
+<p><a href="https://archive.cloudera.com/hwx-sandbox/hdp/hdp-2.6.5/HDP_2.6.5_virtualbox_180626.ova">Cloudera HDP Sandbox for VirtualBox (version 2.6.5)</a></p>
+<p>After downloading, configure it in VMware Workstation.</p>
+<h3 id="step-2-connecting-to-the-vm-via-putty">Step 2: Connecting to the VM via PuTTY</h3>
+<p>To interact with the sandbox, use PuTTY to connect to the VM. Here are the connection details:</p>
+<pre class="hljs"><code><div>- Username: maria_dev
+- Host: localhost
+- Port: 2222
+</div></code></pre>
+<h4 id="resetting-the-root-password-optional">Resetting the Root Password (Optional)</h4>
+<p>Reset the root password upon initial setup.</p>
+<div class="new-page"></div>
+
+<h3 id="step-3-setting-up-data-ingestion-to-hdfs">Step 3: Setting Up Data Ingestion to HDFS</h3>
+<p>To work with the data files on HDFS, began by transferring the data from local machine to the VM.</p>
+<ol>
+<li>
+<p><strong>Open an HTTP Server on Local Machine:</strong></p>
+<p>Navigate to the folder containing data files on local PC, and start a temporary HTTP server:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> <span class="hljs-string">"D:\Big Data project\data"</span>
+python -m http.server 8000
+</div></code></pre>
+</li>
+<li>
+<p><strong>Download Data Files to VM:</strong></p>
+<p>Using PuTTY, connect to the sandbox and download the data files from local machine (replace <code>192.168.1.12</code> with your local machine's IP address):</p>
+<pre class="hljs"><code><div>wget http://192.168.1.12:8000/u.data
+wget http://192.168.1.12:8000/u.item
+wget http://192.168.1.12:8000/u.user
+</div></code></pre>
+</li>
+<li>
+<p><strong>Upload Data to HDFS:</strong></p>
+<p>Once the data files are on the VM, used the following commands to create directories and upload files to HDFS:</p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir /user/root/data
+hdfs dfs -put u.data /user/root/data/movies_data
+hdfs dfs -put u.item /user/root/data/movies_items
+hdfs dfs -put u.user /user/root/data/users_data
+</div></code></pre>
+</li>
+</ol>
+<p>This completes the initial setup and HDFS data ingestion process.</p>
+<div class="new-page"></div>
+
+<hr>
+<h2 id="2-data-exploration-and-initial-mapreduce-trials">2. Data Exploration and Initial MapReduce Trials</h2>
+<h3 id="overview-of-the-movielens-data-files">Overview of the MovieLens Data Files</h3>
+<p>This project utilizes the MovieLens 100K dataset, which consists of three main files:</p>
+<ul>
+<li><strong><code>u.item</code></strong> - Contains movie information:
+<ul>
+<li>Fields: <code>movie_id</code>, <code>movie_title</code>, <code>release_date</code>, <code>video_release_date</code>, <code>IMDb_URL</code>, and 19 genre flags (e.g., <code>Action</code>, <code>Comedy</code>).</li>
+<li>Genre flags are binary (1 for inclusion, 0 for exclusion).</li>
+</ul>
+</li>
+<li><strong><code>u.data</code></strong> - Contains 100,000 movie ratings by 943 users on 1,682 movies:
+<ul>
+<li>Fields: <code>user_id</code>, <code>item_id</code>, <code>rating</code>, <code>timestamp</code>.</li>
+<li>Ratings are timestamped in Unix time.</li>
+</ul>
+</li>
+<li><strong><code>u.user</code></strong> - Contains user demographics:
+<ul>
+<li>Fields: <code>user_id</code>, <code>age</code>, <code>gender</code>, <code>occupation</code>, <code>zip_code</code>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="initial-mapreduce-programs">Initial MapReduce Programs</h3>
+<p>Four MapReduce scripts were written to gain insights into the dataset:</p>
+<ol>
+<li>
+<p><strong>Rating Count (<code>map_reduce_python.py</code>)</strong></p>
+<ul>
+<li>Objective: Count occurrences of each rating (1-5).</li>
+</ul>
+</li>
+<li>
+<p><strong>Movie Rating Count (<code>map_reduce_python_movies.py</code>)</strong></p>
+<ul>
+<li>Objective: Count the number of ratings for each movie.</li>
+</ul>
+</li>
+<li>
+<p><strong>Best Movies (<code>Best_movies.py</code>)</strong></p>
+<ul>
+<li>Objective: Calculate and list the highest-rated movies with more than 10 ratings.</li>
+</ul>
+</li>
+<li>
+<p><strong>Worst Movies (<code>Worst_movies.py</code>)</strong></p>
+<ul>
+<li>Objective: Calculate and list the lowest-rated movies with more than 10 ratings.</li>
+</ul>
+</li>
+</ol>
+<div class="new-page"></div>
+
+<h3 id="running-the-mapreduce-jobs-locally">Running the MapReduce Jobs Locally</h3>
+<p>For local testing, the <code>mrjob</code> Python library was used. The following commands were executed in Windows PowerShell:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Count of each rating</span>
+python map_reduce_python.py <span class="hljs-string">"D:\Big Data project\data\u.data"</span> &gt; Rating_Count.txt
+
+<span class="hljs-comment"># Count of ratings for each movie</span>
+python map_reduce_python_movies.py <span class="hljs-string">"D:\Big Data project\data\u.data"</span> &gt; Movies_Rating_Count.txt
+
+<span class="hljs-comment"># List of highest-rated movies</span>
+python Best_movies.py <span class="hljs-string">"D:\Big Data project\data\u.data"</span> &gt; Best_movies.txt
+
+<span class="hljs-comment"># List of lowest-rated movies</span>
+python Worst_movies.py <span class="hljs-string">"D:\Big Data project\data\u.data"</span> &gt; Worst_movies.txt
+</div></code></pre>
+<h3 id="setting-up-mapreduce-jobs-on-the-hdp-sandbox">Setting Up MapReduce Jobs on the HDP Sandbox</h3>
+<ol>
+<li>
+<p><strong>Transferring MapReduce Scripts to HDP Sandbox:</strong></p>
+<p>Start a local HTTP server to transfer scripts from local machine to the sandbox VM:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> <span class="hljs-string">"D:\Big Data project\MapReduce"</span>
+python -m http.server 8000
+</div></code></pre>
+<p>Then, download the files on the sandbox:</p>
+<pre class="hljs"><code><div>wget http://192.168.1.12:8000/map_reduce_python.py
+wget http://192.168.1.12:8000/map_reduce_python_movies.py
+wget http://192.168.1.12:8000/Best_movies.py
+wget http://192.168.1.12:8000/Worst_movies.py
+</div></code></pre>
+</li>
+<li>
+<div class="new-page"></div>
+
+<p><strong>Uploading Files to HDFS:</strong></p>
+<p>Create a directory for scripts in HDFS and upload the files:</p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir /user/root/codes
+hdfs dfs -put map_reduce_python.py /user/root/codes/
+hdfs dfs -put map_reduce_python_movies.py /user/root/codes/
+hdfs dfs -put Best_movies.py /user/root/codes/
+hdfs dfs -put Worst_movies.py /user/root/codes/
+
+hdfs dfs -mkdir /user/root/codes_output
+</div></code></pre>
+</li>
+<li>
+<p><strong>Running the MapReduce Jobs on the Sandbox (Using Hadoop Streaming):</strong></p>
+<p>Execute the jobs on Hadoop via the <code>mrjob</code> library with the Hadoop streaming jar:</p>
+<pre class="hljs"><code><div>python map_reduce_python.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar hdfs:///user/root/data/movies_data --output-dir hdfs:///user/root/codes_output/Rating_Count.txt
+
+python map_reduce_python_movies.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar hdfs:///user/root/data/movies_data --output-dir hdfs:///user/root/codes_output/Movies_Rating_Count.txt
+
+python Best_movies.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar hdfs:///user/root/data/movies_data --output-dir hdfs:///user/root/codes_output/Best_movies.txt
+
+python Worst_movies.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar hdfs:///user/root/data/movies_data --output-dir hdfs:///user/root/codes_output/Worst_movies.txt
+</div></code></pre>
+</li>
+</ol>
+<p>Each of these jobs provides output files in HDFS, helping us explore basic statistics and insights about the movie ratings data.</p>
+<hr>
+<div class="new-page"></div>
+
+<h2 id="3-analyzing-movie-ratings-using-apache-pig">3. Analyzing Movie Ratings Using Apache Pig</h2>
+<h3 id="introduction-to-apache-pig">Introduction to Apache Pig</h3>
+<p>Apache Pig is a high-level platform for creating MapReduce programs that works with large data sets in Hadoop. Developed to simplify complex data transformations, Pig’s scripting language (Pig Latin) provides a flexible way to process data, especially when working with semi-structured data formats. Pig’s introduction transformed the Hadoop ecosystem by allowing users to perform ETL (Extract, Transform, Load) tasks more efficiently than traditional MapReduce.</p>
+<h3 id="objectives">Objectives</h3>
+<p>The goal of this section is to identify:</p>
+<ol>
+<li><strong>The lowest-rated movies</strong> - movies with an average rating that ranks them poorly based on user feedback.</li>
+<li><strong>The highest-rated movies</strong> - movies with consistently high ratings from users.</li>
+</ol>
+<h3 id="pig-scripts-and-explanation">Pig Scripts and Explanation</h3>
+<p>Two Pig scripts were created for this analysis:</p>
+<ul>
+<li><strong><code>pig_bad_movies.txt</code></strong>: This script identifies movies with more than 10 ratings and returns the lowest-rated ones.</li>
+<li><strong><code>pig_good_movies.txt</code></strong>: This script identifies movies with more than 10 ratings and returns the highest-rated ones.</li>
+</ul>
+<p>Each script performs the following tasks:</p>
+<ol>
+<li><strong>Load the ratings and movies metadata</strong>: This includes loading the movies data and converting the release date into a Unix timestamp for easy processing.</li>
+<li><strong>Group ratings by movie</strong>: Calculate the average rating and count of ratings per movie.</li>
+<li><strong>Filter by rating count</strong>: Only include movies with more than 10 ratings for a more reliable average rating.</li>
+<li><strong>Join with movie metadata</strong>: Add relevant movie information, such as the title, to the final output.</li>
+<li><strong>Order results</strong>: Sort by average rating (ascending for worst movies, descending for best movies).</li>
+<li><strong>Store the output</strong>: Save results to HDFS.</li>
+</ol>
+<div class="new-page"></div>
+
+<h3 id="running-the-pig-scripts-on-hdp-sandbox">Running the Pig Scripts on HDP Sandbox</h3>
+<ol>
+<li>
+<p><strong>Set Up the Pig Scripts on the Sandbox:</strong></p>
+<p>Transfer the Pig scripts to the sandbox using a local HTTP server and <code>wget</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> <span class="hljs-string">"D:\Big Data project\PIG"</span>
+python -m http.server 8000
+
+wget http://192.168.1.12:8000/pig_bad_movies.txt
+wget http://192.168.1.12:8000/pig_good_movies.txt
+</div></code></pre>
+</li>
+<li>
+<p><strong>Upload Pig Scripts to HDFS:</strong></p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir /user/root/pig_codes
+hdfs dfs -mkdir /user/root/pig_output
+
+hdfs dfs -put pig_bad_movies.txt /user/root/pig_codes/pig_bad_movies_script
+hdfs dfs -put pig_good_movies.txt /user/root/pig_codes/pig_good_movies_script
+</div></code></pre>
+</li>
+<li>
+<p><strong>Run the Pig Scripts Using Ambari’s Pig View:</strong></p>
+<p>Using Ambari, navigate to Pig View and specify the paths to the scripts. Execute them to process the data and generate output.</p>
+</li>
+</ol>
+<h3 id="performance-comparison-without-tez-vs-with-tez">Performance Comparison: Without Tez vs. With Tez</h3>
+<p>Apache Tez is an advanced framework for Hadoop that improves execution speed by optimizing job planning and resource usage. Running these scripts with and without Tez provided noticeable differences:</p>
+<ul>
+<li><strong>Without Tez</strong>: Execution took significantly longer due to traditional MapReduce phases, which added latency between stages.</li>
+<li><strong>With Tez</strong>: The runtime decreased, as Tez managed data flow and minimized latency by avoiding unnecessary intermediate writes and shuffling. This demonstrated Tez’s efficiency for iterative data processing, especially for complex data transformations like those in Pig scripts.</li>
+</ul>
+<hr>
+<div class="new-page"></div>
+
+<h2 id="4-analyzing-movie-ratings-using-apache-spark">4. Analyzing Movie Ratings Using Apache Spark</h2>
+<p>Apache Spark is a unified analytics engine that provides high-performance and scalability for large-scale data processing. With native support for advanced data analysis through its DataFrame and RDD APIs, Spark has become essential in the Hadoop ecosystem, replacing older tools like Pig and MapReduce. Leveraging PySpark in this project, we analyzed movie ratings, exploring the best- and worst-rated movies while showcasing Spark’s efficiency and scalability.</p>
+<h3 id="objectives">Objectives</h3>
+<p>The main goals of this section are:</p>
+<ol>
+<li><strong>Identify the lowest-rated movies</strong> - movies with poor average ratings based on user feedback.</li>
+<li><strong>Identify the highest-rated movies</strong> - movies that consistently receive high ratings from users.</li>
+</ol>
+<h3 id="spark-scripts-and-explanation">Spark Scripts and Explanation</h3>
+<h3 id="python-scripts-for-local-analysis">Python Scripts for Local Analysis</h3>
+<p>Two Python scripts, created using Pandas, were executed locally:</p>
+<ul>
+<li><strong><code>A_Best_movies_in_python.py</code></strong>: Identifies the movies with the highest average ratings.</li>
+<li><strong><code>A_worst_movies_in_python.py</code></strong>: Identifies the movies with the lowest average ratings.</li>
+</ul>
+<p>For testing purposes, these scripts were run locally in Visual Studio, providing a quick validation of the analysis logic before transitioning to larger-scale processing in Hadoop.</p>
+<p>Multiple PySpark scripts were developed to accomplish these objectives. Each script uses either the DataFrame or RDD API for data processing:</p>
+<ul>
+<li><strong><code>B_Best_movies_in_spark.py</code></strong>: Identifies top-rated movies with more than 10 ratings using the DataFrame API.</li>
+<li><strong><code>B_worest_movies_in_spark.py</code></strong>: Identifies lowest-rated movies using the same criteria and DataFrame API.</li>
+<li><strong><code>C_Best_movies_RDD_API.py</code></strong> and <strong><code>E_Worst_movies_RDD_API.py</code></strong>: Implement similar analyses using the RDD API for additional comparison and insight into API performance.</li>
+</ul>
+<p>Each script performs the following tasks:</p>
+<ol>
+<li><strong>Load the ratings and movies metadata</strong>: Load the MovieLens dataset into Spark DataFrames or RDDs.</li>
+<li><strong>Group ratings by movie</strong>: Calculate the average rating and rating count for each movie.</li>
+<li><strong>Filter by rating count</strong>: Retain only movies with more than 10 ratings to ensure reliable averages.</li>
+<li><strong>Join with movie metadata</strong>: Combine with the movies data to retrieve titles and relevant movie details.</li>
+<li><strong>Order results</strong>: Sort by average rating to produce a list of either the best or worst movies.</li>
+<li><strong>Store the output</strong>: Output results to HDFS or the local file system as specified.</li>
+</ol>
+<h3 id="running-the-pyspark-scripts-on-hdp-sandbox">Running the PySpark Scripts on HDP Sandbox</h3>
+<ol>
+<li>
+<p><strong>Set Up Spark Scripts on the Sandbox:</strong></p>
+<p>Use a local HTTP server to transfer the scripts to the sandbox environment:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> <span class="hljs-string">"D:\Big Data project\Spark"</span>
+python -m http.server 8000
+
+wget http://192.168.1.12:8000/B_Best_movies_in_spark.py
+wget http://192.168.1.12:8000/B_worest_movies_in_spark.py
+wget http://192.168.1.12:8000/C_Best_movies_RDD_API.py
+wget http://192.168.1.12:8000/E_Worst_movies_RDD_API.py
+</div></code></pre>
+</li>
+<li>
+<p><strong>Upload Spark Scripts to HDFS:</strong></p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir /user/root/spark_scripts
+hdfs dfs -mkdir /user/root/spark_output
+
+hdfs dfs -put B_Best_movies_in_spark.py /user/root/spark_scripts/
+hdfs dfs -put B_worest_movies_in_spark.py /user/root/spark_scripts/
+hdfs dfs -put C_Best_movies_RDD_API.py /user/root/spark_scripts/
+hdfs dfs -put E_Worst_movies_RDD_API.py /user/root/spark_scripts/
+</div></code></pre>
+</li>
+<li>
+<p><strong>Run the PySpark Scripts on HDFS:</strong></p>
+<p>Submit the Spark jobs via command line in the HDP sandbox. Ensure that <code>PYSPARK_PYTHON</code> is set to Python 3 to avoid compatibility issues:</p>
+<pre class="hljs"><code><div>PYSPARK_PYTHON=python3 spark-submit /user/root/spark_scripts/B_Best_movies_in_spark.py
+PYSPARK_PYTHON=python3 spark-submit /user/root/spark_scripts/B_worest_movies_in_spark.py
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/184319b7-a5fe-4018-9803-acb40dc9dd29" alt="Screenshot 2024-11-08 234200">
+<img src="https://github.com/user-attachments/assets/2b8cb9f0-d57f-49d8-a063-d9f747223ff6" alt="Screenshot 2024-11-08 234228"></p>
+</li>
+</ol>
+<h3 id="performance-insights-dataframe-api-vs-rdd-api">Performance Insights: DataFrame API vs. RDD API</h3>
+<p>Spark offers multiple APIs for data processing, and each has its strengths:</p>
+<ul>
+<li>
+<p><strong>DataFrame API</strong>: Optimized for performance with Catalyst and Tungsten, DataFrames provide easier-to-read code, particularly for SQL-like transformations.</p>
+</li>
+<li>
+<p><img src="https://github.com/user-attachments/assets/bc5c8f71-eb44-4f88-aaf3-b86370dd92d9" alt="Screenshot 2024-11-08 234359"></p>
+</li>
+<li>
+<p><img src="https://github.com/user-attachments/assets/dc5655b2-c2dc-49a8-82b5-4fef3bba6b09" alt="Screenshot 2024-11-08 234433"></p>
+</li>
+<li>
+<div class="new-page"></div>
+
+<p><strong>RDD API</strong>: While more flexible and lower-level, RDD operations can be slower due to reduced optimization. Testing with both APIs highlighted DataFrames’ efficiency for ETL tasks, whereas RDDs may be better suited to custom transformations or operations requiring fine-grained control.</p>
+</li>
+<li>
+<p><img src="https://github.com/user-attachments/assets/b12f8384-05d0-46eb-b00c-ef902d89df97" alt="Screenshot 2024-11-08 234515"></p>
+</li>
+<li>
+<p><img src="https://github.com/user-attachments/assets/b87d7baf-b48d-47da-a073-f277740799b6" alt="Screenshot 2024-11-08 234833"></p>
+</li>
+</ul>
+<p>By presenting your Spark analysis in this format, you’ll give readers a clear understanding of the objectives, scripts used, and the steps to reproduce the analysis, all while highlighting the advantages of Spark’s different APIs. Let me know if there’s anything specific you’d like to add or emphasize!</p>
+<hr>
+<div class="new-page"></div>
+
+<h2 id="5-relational-data-storage">5. Relational Data Storage</h2>
+<h3 id="apache-hive">Apache Hive</h3>
+<p>After completing data analysis with MapReduce, Pig, and Spark, this project transitioned into relational data storage using <strong>Apache Hive</strong>, a data warehousing tool built on Hadoop. Hive simplifies querying and managing large datasets with an SQL-like syntax, making it easier to work with structured, tabular data in Hadoop. Below are the steps and commands used to set up Hive for movie data analysis in this project.</p>
+<h3 id="environment-setup-and-data-preparation-in-hive">Environment Setup and Data Preparation in Hive</h3>
+<p>Using PuTTY, connect to the HDP sandbox to configure Hive.</p>
+<h4 id="step-1-create-data-directories-and-load-files-into-hdfs">Step 1: Create Data Directories and Load Files into HDFS</h4>
+<p>First, create directories in HDFS and transfer the data files that will be used in Hive processing:</p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir -p /user/hive/data
+hdfs dfs -put u.data /user/hive/data/movies_data
+hdfs dfs -put u.item /user/hive/data/movies_items
+hdfs dfs -put u.user /user/hive/data/users_data
+</div></code></pre>
+<p>Assign ownership of these files to the Hive user to ensure access:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">export</span> HADOOP_USER_NAME=hdfs
+hdfs dfs -chown hive:hive /user/hive/data/movies_data
+hdfs dfs -chown hive:hive /user/hive/data/movies_items
+hdfs dfs -chown hive:hive /user/hive/data/users_data
+<span class="hljs-built_in">export</span> HADOOP_USER_NAME=hive
+hive
+</div></code></pre>
+<h4 id="step-2-creating-and-loading-hive-tables">Step 2: Creating and Loading Hive Tables</h4>
+<p>After entering the Hive shell, create a new database to organize the MovieLens data:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">DATABASE</span> IMDBmovies;
+<span class="hljs-keyword">USE</span> IMDBmovies;
+</div></code></pre>
+<div class="new-page"></div>
+
+<p>Define and load data into the <code>movies_data</code>, <code>movies_items</code>, and <code>users</code> tables:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_data (
+    user_id <span class="hljs-built_in">INT</span>,
+    movie_id <span class="hljs-built_in">INT</span>,
+    rating <span class="hljs-built_in">INT</span>,
+    rating_time <span class="hljs-built_in">BIGINT</span>
+)
+<span class="hljs-keyword">ROW</span> <span class="hljs-keyword">FORMAT</span> <span class="hljs-keyword">DELIMITED</span>
+<span class="hljs-keyword">FIELDS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'\t'</span>
+<span class="hljs-keyword">STORED</span> <span class="hljs-keyword">AS</span> TEXTFILE;
+
+<span class="hljs-keyword">LOAD</span> <span class="hljs-keyword">DATA</span> INPATH <span class="hljs-string">'/user/hive/data/movies_data'</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> movies_data;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_items (
+    movie_id <span class="hljs-built_in">INT</span>,
+    movie_name <span class="hljs-keyword">STRING</span>,
+    release_date <span class="hljs-built_in">BIGINT</span>,
+    release_video <span class="hljs-keyword">STRING</span>,
+    imdb_link <span class="hljs-keyword">STRING</span>
+)
+<span class="hljs-keyword">ROW</span> <span class="hljs-keyword">FORMAT</span> <span class="hljs-keyword">DELIMITED</span>
+<span class="hljs-keyword">FIELDS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'|'</span>
+<span class="hljs-keyword">STORED</span> <span class="hljs-keyword">AS</span> TEXTFILE;
+
+<span class="hljs-keyword">LOAD</span> <span class="hljs-keyword">DATA</span> INPATH <span class="hljs-string">'/user/hive/data/movies_items'</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> movies_items;
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">users</span> (
+    user_id <span class="hljs-built_in">INT</span>,
+    age <span class="hljs-built_in">INT</span>,
+    gender <span class="hljs-keyword">STRING</span>,
+    occupation <span class="hljs-keyword">STRING</span>,
+    zip_code <span class="hljs-keyword">STRING</span>
+)
+<span class="hljs-keyword">ROW</span> <span class="hljs-keyword">FORMAT</span> <span class="hljs-keyword">DELIMITED</span>
+<span class="hljs-keyword">FIELDS</span> <span class="hljs-keyword">TERMINATED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'|'</span>
+<span class="hljs-keyword">STORED</span> <span class="hljs-keyword">AS</span> TEXTFILE;
+
+<span class="hljs-keyword">LOAD</span> <span class="hljs-keyword">DATA</span> INPATH <span class="hljs-string">'/user/hive/data/users_data'</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">users</span>;
+</div></code></pre>
+<div class="new-page"></div>
+
+<h3 id="data-analysis-in-hive">Data Analysis in Hive</h3>
+<p>Hive’s SQL-like language simplifies data analysis by enabling complex joins, aggregations, and filtering. Here are some key queries and views created to derive insights from the data:</p>
+<h4 id="top-rated-movies-by-rating-count">Top Rated Movies by Rating Count</h4>
+<p>Create a view to display movie information, including the average rating and total rating count:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> Movies <span class="hljs-keyword">AS</span> 
+<span class="hljs-keyword">SELECT</span> m.movie_id, t.movie_name, <span class="hljs-keyword">COUNT</span>(m.movie_id) <span class="hljs-keyword">AS</span> ratingCount, <span class="hljs-keyword">AVG</span>(rating) <span class="hljs-keyword">AS</span> avg_rating
+<span class="hljs-keyword">FROM</span> movies_data m 
+<span class="hljs-keyword">JOIN</span> movies_items t <span class="hljs-keyword">ON</span> m.movie_id = t.movie_id
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> m.movie_id, t.movie_name;
+</div></code></pre>
+<p>Example queries to analyze the <code>Movies</code> view:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Top-rated movies with more than 10 ratings</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Movies <span class="hljs-keyword">WHERE</span> ratingCount &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> avg_rating <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-comment">-- Lowest-rated movies with more than 10 ratings</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Movies <span class="hljs-keyword">WHERE</span> ratingCount &gt; <span class="hljs-number">10</span> <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> avg_rating <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-comment">-- High-rated movies with fewer than 50 ratings</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Movies <span class="hljs-keyword">WHERE</span> ratingCount &lt; <span class="hljs-number">50</span> <span class="hljs-keyword">AND</span> avg_rating &gt; <span class="hljs-number">4.5</span>;
+
+<span class="hljs-comment">-- Most-rated movies</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Movies <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ratingCount <span class="hljs-keyword">DESC</span> <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-comment">-- Least-rated movies</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> Movies <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ratingCount <span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<div class="new-page"></div>
+
+<h3 id="additional-analytical-queries">Additional Analytical Queries</h3>
+<h4 id="most-popular-movies-over-time">Most Popular Movies Over Time</h4>
+<p>Identify trends in movie ratings over time by analyzing rating counts per year:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(movie_id) <span class="hljs-keyword">AS</span> ratingCount, <span class="hljs-keyword">YEAR</span>(FROM_UNIXTIME(rating_time)) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">year</span>
+<span class="hljs-keyword">FROM</span> movies_data 
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">YEAR</span>(FROM_UNIXTIME(rating_time));
+</div></code></pre>
+<h4 id="most-active-users">Most Active Users</h4>
+<p>Identify the most active users based on their number of ratings:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> TopUsers <span class="hljs-keyword">AS</span> 
+<span class="hljs-keyword">SELECT</span> user_id, <span class="hljs-keyword">COUNT</span>(movie_id) <span class="hljs-keyword">AS</span> ratingCount
+<span class="hljs-keyword">FROM</span> movies_data
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> user_id;
+
+<span class="hljs-comment">-- Most active users</span>
+<span class="hljs-keyword">SELECT</span> user_id, ratingCount 
+<span class="hljs-keyword">FROM</span> TopUsers
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ratingCount <span class="hljs-keyword">DESC</span>
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-comment">-- Least active users</span>
+<span class="hljs-keyword">SELECT</span> user_id, ratingCount 
+<span class="hljs-keyword">FROM</span> TopUsers
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> ratingCount
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+</div></code></pre>
+<p>These queries and views offer valuable insights into user rating patterns, movie popularity, and comparative ratings of movies with significant user feedback. Hive integration complements previous analysis steps, adding a relational data perspective to the project’s Hadoop ecosystem.</p>
+<hr>
+<div class="new-page"></div>
+
+<h3 id="setting-up-mysql">Setting Up MySQL</h3>
+<p>The project also uses MySQL as an additional relational data storage option. Below are the steps to set up MySQL, configure the root user, and enable data exchange between Hive and MySQL using <strong>Sqoop</strong>.</p>
+<h4 id="mysql-configuration">MySQL Configuration</h4>
+<ol>
+<li>
+<p><strong>Switch to the Root User and Start MySQL with Skip Grant Tables</strong></p>
+<pre class="hljs"><code><div>su root
+systemctl stop mysqld
+systemctl <span class="hljs-built_in">set</span>-environment MYSQLD_OPTS=<span class="hljs-string">"--skip-grant-tables --skip-networking"</span>
+systemctl start mysqld
+mysql -uroot
+</div></code></pre>
+</li>
+<li>
+<p><strong>Update Root User Privileges and Password</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">USER</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'hadoop'</span>;
+<span class="hljs-keyword">FLUSH</span> <span class="hljs-keyword">PRIVILEGES</span>;
+QUIT;
+</div></code></pre>
+</li>
+<li>
+<p><strong>Restart MySQL in Normal Mode</strong></p>
+<pre class="hljs"><code><div>systemctl <span class="hljs-built_in">unset</span>-environment MYSQLD_OPTS
+systemctl restart mysqld
+mysql -u root -p
+</div></code></pre>
+</li>
+</ol>
+<h4 id="load-data-into-mysql">Load Data into MySQL</h4>
+<ol>
+<li>
+<p><strong>Download the MovieLens SQL File</strong></p>
+<pre class="hljs"><code><div>wget http://192.168.1.12:8000/movielens.sql
+</div></code></pre>
+</li>
+<li>
+<div class="new-page"></div>
+<p><strong>Configure MySQL Database for MovieLens Data</strong></p>
+<pre class="hljs"><code><div><span class="hljs-keyword">GRANT</span> <span class="hljs-keyword">ALL</span> <span class="hljs-keyword">PRIVILEGES</span> <span class="hljs-keyword">ON</span> movielens.* <span class="hljs-keyword">TO</span> <span class="hljs-string">'root'</span>@<span class="hljs-string">'localhost'</span> <span class="hljs-keyword">IDENTIFIED</span> <span class="hljs-keyword">BY</span> <span class="hljs-string">'Radwaa1514'</span>;
+
+<span class="hljs-keyword">SET</span> <span class="hljs-keyword">NAMES</span> <span class="hljs-string">'utf8'</span>;
+<span class="hljs-keyword">SET</span> <span class="hljs-built_in">CHARACTER</span> <span class="hljs-keyword">SET</span> utf8;
+<span class="hljs-keyword">USE</span> movies;
+SOURCE movielens.sql;
+</div></code></pre>
+</li>
+</ol>
+<h4 id="integrating-mysql-with-hdfs-using-sqoop">Integrating MySQL with HDFS using Sqoop</h4>
+<p>To transfer data between MySQL and HDFS, <strong>Sqoop</strong> will be used for data import and export.</p>
+<ol>
+<li>
+<p><strong>Import Data from MySQL to HDFS</strong></p>
+<p>Import the <code>movies</code> table from MySQL to HDFS for further processing in the Hadoop ecosystem:</p>
+<pre class="hljs"><code><div>sqoop import --connect jdbc:mysql://localhost/movies --driver com.mysql.jdbc.Driver --table movies --username root --password <span class="hljs-string">'Radwaa1514'</span> --target-dir /user/hive/data/movies_data -m 1
+</div></code></pre>
+</li>
+<li>
+<p><strong>Export Data from Hive to MySQL</strong></p>
+<p>Export data from Hive to MySQL to enable querying or visualization with traditional SQL tools:</p>
+<pre class="hljs"><code><div>sqoop <span class="hljs-built_in">export</span> --connect jdbc:mysql://localhost/movies --driver com.mysql.jdbc.Driver --table users --username root --password <span class="hljs-string">'Radwaa1514'</span> --<span class="hljs-built_in">export</span>-dir /apps/hive/warehouse/imdbmovies.db/users -m 1 --input-fields-terminated-by <span class="hljs-string">'\t'</span>
+</div></code></pre>
+</li>
+</ol>
+<p>This relational data storage section completes the integration of Hive and MySQL within the project, showcasing powerful tools for structured data management and cross-system data processing in the Hadoop ecosystem.</p>
+<hr>
+<div class="new-page"></div>
+
+<h2 id="6-non-relational-data-storage">6. Non-Relational Data Storage</h2>
+<p>The non-relational data storage section of the project focuses on integrating large-scale, semi-structured data management with Apache Cassandra, MongoDB, and HBase. By leveraging these NoSQL solutions, the project demonstrates a robust approach to handling and querying extensive datasets.</p>
+<h3 id="61-apache-cassandra-setup-and-spark-integration">6.1 Apache Cassandra Setup and Spark Integration</h3>
+<p>Apache Cassandra was configured as the first non-relational storage solution, ideal for distributing large amounts of data. Below are the steps followed to integrate Cassandra with Spark.</p>
+<h4 id="step-1-install-and-start-cassandra-service">Step 1: Install and Start Cassandra Service</h4>
+<ol>
+<li>
+<p><strong>Start Cassandra service</strong>:</p>
+<pre class="hljs"><code><div>service cassandra start
+</div></code></pre>
+</li>
+<li>
+<p><strong>Access Cassandra shell</strong>:</p>
+<pre class="hljs"><code><div>cqlsh --cqlversion=<span class="hljs-string">"3.4.0"</span>
+</div></code></pre>
+</li>
+</ol>
+<h4 id="step-2-create-keyspace-and-tables">Step 2: Create Keyspace and Tables</h4>
+<ol>
+<li>
+<p><strong>Define Keyspace</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> KEYSPACE movielens 
+<span class="hljs-keyword">WITH</span> <span class="hljs-keyword">replication</span> = {<span class="hljs-string">'class'</span>: <span class="hljs-string">'SimpleStrategy'</span>, <span class="hljs-string">'replication_factor'</span>: <span class="hljs-number">1</span>} 
+<span class="hljs-keyword">AND</span> durable_writes = <span class="hljs-literal">true</span>;
+</div></code></pre>
+</li>
+<li>
+<div class="new-page"></div>
+
+<p><strong>Define Tables</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">USE</span> movielens;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">users</span> (
+    user_id <span class="hljs-built_in">INT</span>,
+    age <span class="hljs-built_in">INT</span>,
+    gender <span class="hljs-built_in">TEXT</span>,
+    occupation <span class="hljs-built_in">TEXT</span>,
+    zip <span class="hljs-built_in">TEXT</span>,
+    PRIMARY <span class="hljs-keyword">KEY</span> (user_id)
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_ratings_info (
+    user_id <span class="hljs-built_in">INT</span>,
+    movie_id <span class="hljs-built_in">INT</span>,
+    rating <span class="hljs-built_in">INT</span>,
+    rating_time <span class="hljs-built_in">BIGINT</span>,
+    PRIMARY <span class="hljs-keyword">KEY</span> (movie_id, user_id)
+);
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_names (
+    movie_id <span class="hljs-built_in">INT</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+    movie_title <span class="hljs-built_in">TEXT</span>,
+    release_date <span class="hljs-built_in">TEXT</span>,   
+    release_video <span class="hljs-built_in">TEXT</span>,
+    imdb_link <span class="hljs-built_in">TEXT</span>
+);
+</div></code></pre>
+</li>
+</ol>
+<div class="new-page"></div>
+
+<h3 id="step-3-integrate-spark-with-cassandra">Step 3: Integrate Spark with Cassandra</h3>
+<p>Following the Cassandra setup, Spark was used to process and store data in the Cassandra tables. The code files (<code>CassandraSpark.py</code> and <code>Best_Worst_movies.py</code>) are located in the <strong>Non-Relational DB/Cassandra</strong> folder.</p>
+<ol>
+<li>
+<p><strong>Upload Spark Code</strong>:</p>
+<pre class="hljs"><code><div>hdfs dfs -mkdir /user/root/Nosql
+hdfs dfs -put CassandraSpark.py /user/root/Nosql/CassandraSpark.py
+hdfs dfs -put Best_Worst_movies.py /user/root/Nosql/Best_Worst_movies.py
+</div></code></pre>
+</li>
+<li>
+<p><strong>Submit Spark Jobs</strong>:</p>
+<pre class="hljs"><code><div>spark-submit --packages com.datastax.spark:spark-cassandra-connector_2.11:2.5.2 hdfs:///user/root/Nosql/CassandraSpark.py
+spark-submit --packages com.datastax.spark:spark-cassandra-connector_2.11:2.5.2 hdfs:///user/root/Nosql/Best_Worst_movies.py
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/c350f47b-0b1c-4288-8810-8e67ecfb232d" alt="Screenshot 2024-11-10 013704"></p>
+</li>
+</ol>
+<h3 id="data-analysis-in-cassandra">Data Analysis in Cassandra</h3>
+<p>The data stored in Cassandra was queried using Spark SQL to identify the highest and lowest-rated movies. Spark's integration with Cassandra enabled efficient querying and analysis.</p>
+<hr>
+<div class="new-page"></div>
+
+<h3 id="62-mongodb-setup-and-spark-integration">6.2 MongoDB Setup and Spark Integration</h3>
+<p>MongoDB was utilized as another non-relational storage solution, enabling flexible data handling for the MovieLens dataset.</p>
+<h4 id="step-1-configure-mongodb-with-ambari">Step 1: Configure MongoDB with Ambari</h4>
+<ol>
+<li><strong>Clone MongoDB service setup</strong>:<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> /var/lib/ambari-server/resources/stacks/HDP/2.5/services
+git <span class="hljs-built_in">clone</span> https://github.com/nikunjness/mongo-ambari.git
+sudo service ambari-server restart
+</div></code></pre>
+</li>
+</ol>
+<h4 id="step-2-spark-integration-with-mongodb">Step 2: Spark Integration with MongoDB</h4>
+<p>With MongoDB installed, Spark was used for data storage and analysis. The code files (<code>MongoSpark.py</code> and <code>Best_worst_Mongo.py</code>) are stored in the <strong>Non-Relational DB/MongoDB</strong> folder.</p>
+<ol>
+<li>
+<p><strong>Upload Spark Scripts</strong>:</p>
+<pre class="hljs"><code><div>hdfs dfs -put MongoSpark.py /user/root/Nosql/MongoSpark.py
+hdfs dfs -put Best_worst_Mongo.py /user/root/Nosql/Best_worst_Mongo.py
+</div></code></pre>
+</li>
+<li>
+<p><strong>Submit Spark Jobs</strong>:</p>
+<pre class="hljs"><code><div>spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.11:2.4.3 hdfs:///user/root/Nosql/MongoSpark.py
+spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.11:2.4.3 hdfs:///user/root/Nosql/Best_worst_Mongo.py
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/4cae781f-1a90-4db7-8765-6b4c3a2a0fe6" alt="Screenshot 2024-11-10 014500"></p>
+</li>
+<li>
+<p><strong>MongoDB Index Creation</strong>:</p>
+<pre class="hljs"><code><div>use movielens
+db.users.createIndex({ <span class="hljs-attr">movie_id</span>: <span class="hljs-number">1</span> })
+</div></code></pre>
+</li>
+</ol>
+<h3 id="data-analysis-in-mongodb">Data Analysis in MongoDB</h3>
+<p>Through Spark, we processed and analyzed data in MongoDB to determine the best and worst-rated movies. Indexes were created on frequently queried columns to enhance performance.</p>
+<hr>
+<div class="new-page"></div>
+
+<h3 id="63-hbase-setup-and-phoenix-integration">6.3 HBase Setup and Phoenix Integration</h3>
+<p>HBase provided an alternative non-relational storage layer, with Phoenix facilitating SQL-based querying.</p>
+<h4 id="step-1-create-hbase-tables-with-phoenix">Step 1: Create HBase Tables with Phoenix</h4>
+<p>Using Phoenix, we created tables to store user information, ratings data, and movie details:</p>
+<ol>
+<li>
+<p><strong>Start Phoenix SQL shell</strong>:</p>
+<pre class="hljs"><code><div>python /usr/hdp/current/phoenix-client/bin/sqlline.py
+</div></code></pre>
+</li>
+<li>
+<p><strong>Create HBase Tables</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">users</span> (
+    USERID <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    AGE <span class="hljs-built_in">INTEGER</span>,
+    GENDER <span class="hljs-built_in">VARCHAR</span>,
+    OCCUPATION <span class="hljs-built_in">VARCHAR</span>,
+    ZIP <span class="hljs-built_in">VARCHAR</span>,
+    <span class="hljs-keyword">CONSTRAINT</span> pk PRIMARY <span class="hljs-keyword">KEY</span> (USERID)
+) COLUMN_ENCODED_BYTES=<span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_data (
+    userID <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    movieID <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    rating <span class="hljs-built_in">INTEGER</span>,
+    rating_time <span class="hljs-built_in">BIGINT</span>,
+    <span class="hljs-keyword">CONSTRAINT</span> pk PRIMARY <span class="hljs-keyword">KEY</span> (userID, movieID)
+) COLUMN_ENCODED_BYTES=<span class="hljs-number">0</span>;
+
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> movies_items (
+    movie_id <span class="hljs-built_in">INTEGER</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+    movie_title <span class="hljs-built_in">VARCHAR</span>,
+    release_date <span class="hljs-built_in">VARCHAR</span>,
+    release_video <span class="hljs-built_in">VARCHAR</span>,
+    imdb_link <span class="hljs-built_in">VARCHAR</span>
+) SPLITS = <span class="hljs-number">4</span>;
+</div></code></pre>
+</li>
+</ol>
+<div class="new-page"></div>
+
+<h4 id="step-2-load-data-into-hbase-with-pig">Step 2: Load Data into HBase with Pig</h4>
+<p>Data was loaded into HBase from HDFS using Pig scripts (<code>movies_data.pig</code>, <code>movies_items.pig</code>, and <code>users.pig</code>). The scripts are located in the <strong>Non-Relational DB/HBase_Phoenix</strong> folder.</p>
+<ol>
+<li><strong>Run Pig Scripts</strong>:<pre class="hljs"><code><div>pig users.pig
+pig movies_data.pig
+pig movies_items.pig
+</div></code></pre>
+</li>
+</ol>
+<h3 id="data-analysis-in-hbase-with-phoenix">Data Analysis in HBase with Phoenix</h3>
+<p>Data analysis was conducted with SQL queries through Phoenix. The queries were used to obtain insights on top-rated, lowest-rated, and most-rated movies, as well as identifying the oldest and newest movies.</p>
+<p>Sample Queries:</p>
+<pre class="hljs"><code><div><span class="hljs-comment">-- Top Rated Movies</span>
+<span class="hljs-keyword">SELECT</span> t.movieID, n.movie_title, <span class="hljs-keyword">AVG</span>(t.rating) <span class="hljs-keyword">AS</span> avg_rating, <span class="hljs-keyword">COUNT</span>(t.userID) <span class="hljs-keyword">AS</span> ratingCount 
+<span class="hljs-keyword">FROM</span> movies_data t <span class="hljs-keyword">JOIN</span> movies_items n <span class="hljs-keyword">ON</span> t.movieID = n.movie_id 
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> t.movieID, n.movie_title 
+<span class="hljs-keyword">HAVING</span> <span class="hljs-keyword">COUNT</span>(t.userID) &gt; <span class="hljs-number">10</span> 
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> avg_rating <span class="hljs-keyword">DESC</span> 
+<span class="hljs-keyword">LIMIT</span> <span class="hljs-number">10</span>;
+
+<span class="hljs-comment">-- Oldest Movies</span>
+<span class="hljs-keyword">SELECT</span> t.movieID, n.movie_title, n.release_date, <span class="hljs-keyword">AVG</span>(t.rating) <span class="hljs-keyword">AS</span> avg_rating, <span class="hljs-keyword">COUNT</span>(t.userID) <span class="hljs-keyword">AS</span> ratingCount 
+<span class="hljs-keyword">FROM</span> movies_data t <span class="hljs-keyword">JOIN</span> movies_items n <span class="hljs-keyword">ON</span> t.movieID = n.movie_id 
+<span class="hljs-keyword">WHERE</span> n.release_date = (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">MIN</span>(release_date) <span class="hljs-keyword">FROM</span> movies_items)
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> t.movieID, n.movie_title, n.release_date;
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/9853509a-d5a9-4762-8664-3ac8ca4714cd" alt="Screenshot 2024-11-11 032740">
+<img src="https://github.com/user-attachments/assets/e74a1ba9-0498-499f-899e-09ec2a26edfe" alt="Screenshot 2024-11-11 032136">
+<img src="https://github.com/user-attachments/assets/b121138b-dd76-4352-82fa-e10cb61a8849" alt="Screenshot 2024-11-11 031902"></p>
+<hr>
+<p>This <strong>Non-Relational Data Storage</strong> section highlights the flexibility and scalability of non-relational databases when managing large datasets, with HBase, Cassandra, and MongoDB collectively contributing to efficient data storage, processing, and querying solutions within this project.</p>
+<h3 id="understanding-the-cap-theorem-in-nosql-databases">Understanding the CAP Theorem in NoSQL Databases</h3>
+<p>The <strong>CAP theorem</strong> (Consistency, Availability, and Partition Tolerance) provides a theoretical framework for understanding the trade-offs inherent in distributed systems, especially in NoSQL databases. According to CAP theorem, any distributed system can provide at most two out of the following three guarantees:</p>
+<ol>
+<li><strong>Consistency</strong>: Every read receives the most recent write or an error.</li>
+<li><strong>Availability</strong>: Every request (read or write) receives a response, without guarantee that it contains the latest data.</li>
+<li><strong>Partition Tolerance</strong>: The system continues to operate despite arbitrary message loss or partial failure.</li>
+</ol>
+<p>Since network partitions are inevitable in distributed systems, most NoSQL databases are designed to choose between <strong>Consistency</strong> and <strong>Availability</strong> based on their intended use cases. Let’s look at how each database used in this project aligns with CAP and the primary differences in their data models.</p>
+<h4 id="cassandra-ap-system">Cassandra (AP System)</h4>
+<p>Cassandra is optimized for <strong>availability and partition tolerance</strong>. It provides <strong>tunable consistency</strong>, allowing users to configure the level of consistency per operation by setting replication factors and quorum levels. This flexibility makes Cassandra suitable for applications requiring high availability across geographically distributed nodes, such as IoT or time-series applications. Its <strong>column-family data model</strong> supports highly scalable, write-intensive workloads.</p>
+<h4 id="mongodb-cp-system">MongoDB (CP System)</h4>
+<p>MongoDB prioritizes <strong>consistency and partition tolerance</strong>, maintaining strong consistency within each replica set by default. It uses a <strong>document-based model</strong>, where data is stored in JSON-like BSON documents, allowing flexibility in schema design. This model is ideal for applications with evolving data structures, like content management systems or product catalogs. While MongoDB can be configured to prioritize availability (e.g., by adjusting replication settings), it is primarily focused on consistent reads and writes.</p>
+<div class="new-page"></div>
+
+<h4 id="hbase-cp-system">HBase (CP System)</h4>
+<p>HBase is also a <strong>consistency and partition-tolerant</strong> system that offers strong consistency across its distributed architecture. Built on the Hadoop ecosystem, HBase’s <strong>column-family data model</strong> is highly effective for <strong>read-heavy workloads</strong> and real-time analytics. It is designed to handle large-scale data with sparse tables, making it ideal for applications that need fast reads and write access to large datasets, such as recommendation engines or user profiling.</p>
+<p>By incorporating all three in this project, we gain a comprehensive understanding of how different NoSQL databases can be leveraged in big data environments depending on the needs for consistency, availability, or flexibility in schema design.</p>
+<hr>
+<h2 id="7-streaming-with-kafka-flume-and-spark-streaming">7. Streaming with Kafka, Flume, and Spark Streaming</h2>
+<h3 id="kafka-for-real-time-messaging">Kafka for Real-Time Messaging</h3>
+<p>Kafka was used to stream log data in real-time between systems. Below are the key steps for setting up and testing Kafka topics, producers, and consumers.</p>
+<h4 id="setting-up-kafka-topics">Setting Up Kafka Topics</h4>
+<ol>
+<li>
+<p><strong>Create Kafka Topic</strong>:</p>
+<pre class="hljs"><code><div><span class="hljs-built_in">cd</span> /usr/hdp/current/kafka-broker/bin
+./kafka-topics.sh --create --zookeeper sandbox-hdp.hortonworks.com:2181 --replication-factor 1 --partitions 1 --topic <span class="hljs-string">"test"</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>List Kafka Topics</strong> to confirm the topic:</p>
+<pre class="hljs"><code><div>./kafka-topics.sh --list --zookeeper sandbox-hdp.hortonworks.com:2181
+</div></code></pre>
+</li>
+</ol>
+<div class="new-page"></div>
+
+<h4 id="kafka-producer-and-consumer">Kafka Producer and Consumer</h4>
+<p>We created Kafka producer and consumer processes to simulate data flow.</p>
+<ol>
+<li>
+<p><strong>Start Kafka Producer</strong> to send messages:</p>
+<pre class="hljs"><code><div>./kafka-console-producer.sh --broker-list sandbox-hdp.hortonworks.com:6667 --topic <span class="hljs-built_in">test</span>
+</div></code></pre>
+</li>
+<li>
+<p><strong>Start Kafka Consumer</strong> to consume messages:</p>
+<pre class="hljs"><code><div>./kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic <span class="hljs-built_in">test</span> --from-beginning
+</div></code></pre>
+</li>
+</ol>
+<h3 id="kafka-connect-for-file-streaming">Kafka Connect for File Streaming</h3>
+<p>Kafka Connect was used for file-based data ingestion. The configuration files <code>connect-standalone.properties</code>, <code>connect-file-sink.properties</code>, and <code>connect-file-source.properties</code> were set up to allow Kafka to stream data from a file (source) and output to another file (sink).</p>
+<ol>
+<li>
+<p><strong>Source File</strong>: <code>/root/kafka/access_log.txt</code></p>
+<ul>
+<li>Data is streamed into Kafka under the topic <code>logkafka</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Sink File</strong>: <code>/root/kafka/output.txt</code></p>
+<ul>
+<li>Processed data is output for analysis.</li>
+</ul>
+</li>
+<li>
+<p><strong>Start Kafka Connect</strong> to begin file streaming:</p>
+<pre class="hljs"><code><div>./connect-standalone.sh ~/connect-standalone.properties ~/connect-file-source.properties ~/connect-file-sink.properties
+</div></code></pre>
+</li>
+</ol>
+<div class="new-page"></div>
+
+<h3 id="testing-kafka-streaming-with-logs">Testing Kafka Streaming with Logs</h3>
+<p>To simulate log data ingestion, the log file <code>access_log.txt</code> was downloaded and copied into the appropriate directory for Kafka to consume.</p>
+<ol>
+<li>
+<p><strong>Download log file</strong>:</p>
+<pre class="hljs"><code><div>wget http://192.168.1.12:8000/access_log.txt
+</div></code></pre>
+</li>
+<li>
+<p><strong>Start Kafka Consumer</strong> for the <code>logkafka</code> topic:</p>
+<pre class="hljs"><code><div>./kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic logkafka --from-beginning
+</div></code></pre>
+</li>
+</ol>
+<h3 id="integrating-flume-with-spark-streaming">Integrating Flume with Spark Streaming</h3>
+<p>In addition to Kafka, <strong>Flume</strong> was used to collect log data and send it to Kafka, which was then processed by <strong>Spark Streaming</strong>.</p>
+<h4 id="flume-configuration">Flume Configuration</h4>
+<ol>
+<li><strong>Flume Source Configuration</strong>: The <code>spooldir</code> source is used to ingest files from the directory <code>/home/maria_dev/spool</code>. It also applies a timestamp interceptor to the incoming events.</li>
+<li><strong>Flume Sink Configuration</strong>: Events are sent to Kafka (port 9092) in Avro format.</li>
+<li><strong>Flume Channel Configuration</strong>: The <code>memory</code> channel is used to buffer events before sending them to Kafka.</li>
+</ol>
+<p>The Flume configuration file (<code>sparkstreamingflume.conf</code>) and the Python script (<code>SparkFlume.py</code>) were downloaded and set up.</p>
+<h4 id="running-spark-streaming-with-flume">Running Spark Streaming with Flume</h4>
+<ol>
+<li>
+<p><strong>Create directories</strong> for checkpointing and spool:</p>
+<pre class="hljs"><code><div>mkdir /home/maria_dev/checkpoint
+mkdir /home/maria_dev/spool
+</div></code></pre>
+</li>
+<li>
+<div class="new-page"></div>
+<p><strong>Start Flume Agent</strong>:</p>
+<pre class="hljs"><code><div>bin/flume-ng agent --conf conf --conf-file /root/sparkstreamingflume.conf --name a1
+</div></code></pre>
+</li>
+<li>
+
+<p><strong>Start Spark Streaming Application</strong>:</p>
+<pre class="hljs"><code><div>spark-submit --packages org.apache.spark:spark-streaming-flume_2.11:2.3.0 SparkFlume.py
+</div></code></pre>
+</li>
+</ol>
+<h4 id="testing-the-flume-and-spark-streaming-setup">Testing the Flume and Spark Streaming Setup</h4>
+<ol>
+<li>
+<p><strong>Download log file</strong>:</p>
+<pre class="hljs"><code><div>wget http://192.168.1.12:8000/access_log.txt
+</div></code></pre>
+</li>
+<li>
+<p><strong>Copy log file</strong> to the Flume <code>spooldir</code>:</p>
+<pre class="hljs"><code><div>cp access_log.txt /home/maria_dev/spool/log22.txt
+</div></code></pre>
+</li>
+</ol>
+<div class="new-page"></div>
+<hr>
+<ol start="3">
+<li><strong>Observe log data being processed</strong>:
+Spark Streaming processes the log data in real-time, and the results are printed after being aggregated by URL over a sliding 5-minute window.
+<img src="https://github.com/user-attachments/assets/0f05f770-bb91-4e57-b8d9-8876535ee468" alt="Screenshot 2024-11-11 230944"></li>
+</ol>
+<hr>
+<div class="new-page"></div>
+
+<h2 id="8-end-to-end-pipeline-with-zeppelin-notebooks">8. End-to-End Pipeline with Zeppelin Notebooks</h2>
+<p>To conclude the project, an end-to-end data pipeline was implemented in <strong>Apache Zeppelin</strong> using <strong>PySpark</strong> for streamlined analysis and visualization. Zeppelin notebooks allowed for easy interactivity and visualization, making it straightforward to examine the data in various ways, from loading and transforming to aggregating and visualizing insights.</p>
+<h3 id="steps-and-code-in-zeppelin-notebook">Steps and Code in Zeppelin Notebook</h3>
+<h4 id="step-1-load-data-from-hdfs">Step 1: Load Data from HDFS</h4>
+<p>The data files were accessed directly from HDFS, including movie ratings, movie details, and user information.</p>
+<pre class="hljs"><code><div>%pyspark
+data = <span class="hljs-string">"hdfs:///user/root/data/movies_data"</span>
+items = <span class="hljs-string">"hdfs:///user/root/data/movies_items"</span>
+users = <span class="hljs-string">"hdfs:///user/root/data/users_data"</span>
+
+movies_data = spark.read.csv(data, sep=<span class="hljs-string">'\t'</span>, header=<span class="hljs-literal">False</span>, inferSchema=<span class="hljs-literal">True</span>).toDF(<span class="hljs-string">"user_id"</span>, <span class="hljs-string">"item_id"</span>, <span class="hljs-string">"rating"</span>, <span class="hljs-string">"timestamp"</span>)
+movies_data.show(<span class="hljs-number">5</span>)
+</div></code></pre>
+<h4 id="step-2-data-transformation">Step 2: Data Transformation</h4>
+<p>To make the data more accessible, columns were renamed and timestamp formatting was applied.</p>
+<pre class="hljs"><code><div>%pyspark
+<span class="hljs-keyword">from</span> pyspark.sql.functions <span class="hljs-keyword">import</span> from_unixtime, date_format
+movies_data_formatted = movies_data.withColumn(<span class="hljs-string">"timestamp"</span>, date_format(from_unixtime(movies_data[<span class="hljs-string">"timestamp"</span>]), <span class="hljs-string">"yyyy-MM-dd HH:mm:ss"</span>))
+movies_data_formatted.show(<span class="hljs-number">5</span>)
+</div></code></pre>
+<div class="new-page"></div>
+<h4 id="step-3-join-with-user-data-for-insights">Step 3: Join with User Data for Insights</h4>
+<p>User details were extracted, and the data was aggregated to show active users and user demographics.</p>
+<pre class="hljs"><code><div>%pyspark
+users_data = spark.read.csv(users, sep=<span class="hljs-string">"|"</span>, header=<span class="hljs-literal">False</span>, inferSchema=<span class="hljs-literal">True</span>).toDF(<span class="hljs-string">"user_id"</span>, <span class="hljs-string">"age"</span>, <span class="hljs-string">"gender"</span>, <span class="hljs-string">"occupation"</span>, <span class="hljs-string">"zip"</span>)
+active_users_data = active_users.join(users_data, on=<span class="hljs-string">"user_id"</span>, how=<span class="hljs-string">"left"</span>)
+active_users_data.show(<span class="hljs-number">5</span>)
+</div></code></pre>
+<h4 id="step-4-visualization-of-active-users-by-gender-occupation-and-age-group">Step 4: Visualization of Active Users by Gender, Occupation, and Age Group</h4>
+<p>Through SQL queries, we displayed data in various visual formats to explore demographic patterns among the most active users.</p>
+<pre class="hljs"><code><div>%sql
+<span class="hljs-keyword">SELECT</span> gender, <span class="hljs-keyword">COUNT</span>(user_id) <span class="hljs-keyword">as</span> count_users, <span class="hljs-keyword">SUM</span>(user_rating_count) <span class="hljs-keyword">as</span> total_ratings <span class="hljs-keyword">FROM</span> active_users_details <span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> gender
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/01c6f133-d909-4b52-a3c9-ee6a4ef69682" alt="image">
+<img src="https://github.com/user-attachments/assets/7cf081db-f3be-4177-8f9b-61f256838da2" alt="image">
+<img src="https://github.com/user-attachments/assets/8d242832-7be9-43cc-afde-8669d995cf2d" alt="image"></p>
+<div class="new-page"></div>
+<h4 id="step-5-analysis-of-ratings-by-movie-genres-and-time-periods">Step 5: Analysis of Ratings by Movie Genres and Time Periods</h4>
+<p>Aggregated views were created to analyze movie ratings by genre and explore trends over months, days of the week, and years.</p>
+<pre class="hljs"><code><div>%pyspark
+movies_items_data = movies_items_unpivoted.groupBy(<span class="hljs-string">"movie_id"</span>, <span class="hljs-string">"movie_name"</span>, <span class="hljs-string">"release_date"</span>).agg(F.concat_ws(<span class="hljs-string">", "</span>, F.collect_list(<span class="hljs-string">"type"</span>)).alias(<span class="hljs-string">"types"</span>))
+movies_dates_grouped = movies_data_formatted.groupby([<span class="hljs-string">"year"</span>, <span class="hljs-string">"month"</span>, <span class="hljs-string">"day_of_week"</span>]).agg(count(<span class="hljs-string">"rating"</span>).alias(<span class="hljs-string">"ratingCount"</span>)).orderBy(<span class="hljs-string">"ratingCount"</span>, ascending=<span class="hljs-literal">False</span>)
+movies_dates_grouped.show(<span class="hljs-number">5</span>)
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/7d673f07-b6ee-4582-93e6-10bfe6d2776e" alt="image">
+<img src="https://github.com/user-attachments/assets/808deb49-36e7-4c2f-94d5-446ca3a17a04" alt="image">
+<img src="https://github.com/user-attachments/assets/ddf40d83-9ef4-4e33-80c3-f1824a3db578" alt="image">
+<img src="https://github.com/user-attachments/assets/89990c91-3694-48ec-96d8-89084870a181" alt="image">
+<img src="https://github.com/user-attachments/assets/cc0cd56c-afff-4a0e-a188-f4ff502d01dd" alt="image"></p>
+<h4 id="step-6-store-aggregated-results-in-hive-for-future-access">Step 6: Store Aggregated Results in Hive for Future Access</h4>
+<p>Data was saved into Hive tables for easy querying and integration with other parts of the Hadoop ecosystem.</p>
+<pre class="hljs"><code><div>%pyspark
+movies_dates_grouped.write.mode(<span class="hljs-string">"overwrite"</span>).saveAsTable(<span class="hljs-string">"dates_ratings_count"</span>)
+</div></code></pre>
+<p><img src="https://github.com/user-attachments/assets/5d17037c-8792-452b-8f43-82a95408a90f" alt="image">
+<img src="https://github.com/user-attachments/assets/e9493e85-460e-48f1-81f2-041a986727cb" alt="image">
+<img src="https://github.com/user-attachments/assets/8540083e-25a6-480e-83a4-e98112668c66" alt="image">
+<img src="https://github.com/user-attachments/assets/28849815-dc00-4495-ab28-3ffac41cafcc" alt="image"></p>
+<div class="new-page"></div>
+<p>This setup, with structured analysis and visual insights, allowed for a comprehensive examination of movie ratings, user demographics, and trends over time. Zeppelin's interactive capabilities provided a user-friendly interface to finalize the analysis stage of the project.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>This project highlights the flexibility and power of the Hadoop ecosystem for managing, processing, and analyzing large datasets. By exploring both relational and non-relational databases, batch processing, and real-time streaming, the project demonstrates the ability to integrate multiple technologies to address various data challenges. The end-to-end pipeline in Zeppelin provided accessible and insightful data exploration, setting a solid foundation for big data solutions.</p>
+<p>This project was completed as part of the <strong><a href="https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/?utm_campaign=email&amp;utm_medium=email&amp;utm_source=sendgrid.com">The Ultimate Hands-On Hadoop - Tame Your Big Data!</a></strong> course on Udemy. The course provided comprehensive guidance on the Hadoop ecosystem, covering essential big data tools such as Hadoop, Spark, Hive, Kafka, and various NoSQL databases. The skills and knowledge acquired from this course were instrumental in building and completing the project.</p>
+<p>Upon completion, a certificate of accomplishment was awarded:
+<a href="https://www.udemy.com/certificate/UC-7d6ee91d-479c-4f57-801d-31e31d75e/?utm_campaign=email&amp;utm_medium=email&amp;utm_source=sendgrid.com">Certificate of Completion - UC-7d6ee91d-479c-4f57-801d-31e31d75e14e</a>.</p>
+<p>The project code and documentation are available in the GitHub repository:<br>
+<strong><a href="https://github.com/RadwaEsamiel/Hadoop-Insights.git">Hadoop-Insights GitHub Repository</a></strong></p>
+
+</body>
+</html>

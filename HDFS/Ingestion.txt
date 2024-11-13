@@ -1,0 +1,32 @@
+**putty_connection**
+maria_dev@192.168.1.26
+maria_dev
+port : 2222
+su root
+
+
+*****************************************************************************
+from windows PowerShell :
+ 
+cd "D:\iti\Interviews Preparation\Big Data Course\data"
+
+***
+
+Then start the HTTP server :
+
+python -m http.server 8000
+
+***
+
+from putty : 
+
+***
+wget http://192.168.1.12:8000/u.data
+wget http://192.168.1.12:8000/u.item
+wget http://192.168.1.12:8000/u.user
+
+***
+hdfs dfs -mkdir /user/root/data
+hdfs dfs -put u.data /user/root/data/movies_data
+hdfs dfs -put u.item /user/root/data/movies_items
+hdfs dfs -put u.user /user/root/data/users_data

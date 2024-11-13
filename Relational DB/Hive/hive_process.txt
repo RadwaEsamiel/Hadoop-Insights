@@ -1,0 +1,115 @@
+**putty_connection**
+maria_dev@192.168.1.26
+maria_dev
+port : 2222
+su root
+
+
+*****************************************************************************
+
+hdfs dfs -mkdir -p /user/hive/data
+
+hdfs dfs -put u.data /user/hive/data/movies_data
+hdfs dfs -put u.item /user/hive/data/movies_items
+
+export HADOOP_USER_NAME=hdfs
+
+hdfs dfs -chown hive:hive /user/hive/data/movies_data
+hdfs dfs -chown hive:hive /user/hive/data/movies_items
+
+
+
+export HADOOP_USER_NAME=hive
+
+*****************************************************************************
+
+hive
+
+_______________________________
+
+CREATE DATABASE IMDBmovies;
+USE IMDBmovies;
+
+_______________________________
+
+
+CREATE TABLE movies_data (
+    user_id INT,
+    movie_id INT,
+    rating INT,
+    rating_time BIGINT
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+
+******
+
+LOAD DATA INPATH '/user/hive/data/movies_data' INTO TABLE movies_data;
+
+_______________________________
+
+CREATE TABLE movies_items (
+    movie_id INT,
+    movie_name STRING,
+    column3 STRING,
+    column4 STRING,
+    column5 STRING,
+    column6 STRING,
+    column7 STRING,
+    column8 STRING,
+    column9 STRING,
+    column10 STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '|'
+STORED AS TEXTFILE;
+
+******
+
+LOAD DATA INPATH '/user/hive/data/movies_items' INTO TABLE movies_items;
+
+_______________________________
+
+create or replace view topMovieIDs as 
+select m.movie_id,t.movie_name, count(m.movie_id) as ratingCount
+from movies_data m join movies_items t on m.movie_id = t.movie_id
+group by m.movie_id,t.movie_name
+order by ratingCount desc;
+
+******
+
+select n.movie_name, t.ratingCount from 
+topMovieIDs  t join movies_items n on t.movie_id=n.movie_id;
+
+_______________________________
+
+create or replace view HighestRating as 
+select movie_id, avg(rating) as avg_rating,count(movie_id) as ratingCount
+from movies_data 
+group by movie_id
+having count(movie_id) > 10
+order by avg_rating desc ; 
+
+******
+
+select n.movie_name, t.ratingCount, t.avg_rating from 
+HighestRating  t join movies_items n on t.movie_id=n.movie_id;
+
+_______________________________
+
+CREATE TABLE exported_data (movie_id INTEGER, title varchar(255),ratingcount INTEGER);
+
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE;
+
+******
+
+INSERT INTO TABLE movies_exported
+SELECT movie_id, movie_name, ratingcount
+FROM topmovieids;
+
+_______________________________
+
+
